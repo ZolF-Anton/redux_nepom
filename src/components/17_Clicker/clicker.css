@@ -1,0 +1,22 @@
+.clicker {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.button_wrap {
+    display: flex;
+    min-width: 600px;
+    justify-content: center;
+    gap: 1.1rem;
+}
+
+.btn {
+    color: azure;
+    min-width: 110px;
+    background-color: darkgreen;
+    padding: 15px;
+}
+
+h2 {
+    font-size: 45px;
+}
