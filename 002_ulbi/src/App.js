@@ -1,7 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 
 import './App.css';
+import {
+    addCustomerAction,
+    removeAllCustomerAction,
+    removeCustomerAction,
+} from './store/customerReducer';
+import { fetchCustomers } from './asycActions/customers';
 
 function App() {
     const dispatch = useDispatch();
@@ -23,13 +29,13 @@ function App() {
             name: name.current.value,
             id: Date.now(),
         };
-        dispatch({ type: 'ADD_CUSTOMER', payload: customerObj });
+        dispatch(addCustomerAction(customerObj));
     };
     const removeCustomer = (customerRemoveName) => {
-        dispatch({ type: 'REMOVE_CUSTOMER', payload: customerRemoveName.id });
+        dispatch(removeCustomerAction(customerRemoveName.id));
     };
     const removeAllCustomer = () => {
-        dispatch({ type: 'REMOVE_ALL_CUSTOMER' });
+        dispatch(removeAllCustomerAction());
     };
 
     const showCashAmount = (cashAmount) => {
@@ -59,6 +65,9 @@ function App() {
             <div className='App-wrap'>
                 <button onClick={() => addCustomer(refCustomerName)} className='App-btn'>
                     Add Customer
+                </button>
+                <button onClick={() => dispatch(fetchCustomers())} className='App-btn'>
+                    Add Customers from fetch
                 </button>
                 <button onClick={() => removeAllCustomer()} className='App-btn'>
                     Remove Customer
