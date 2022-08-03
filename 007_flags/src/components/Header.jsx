@@ -50,21 +50,21 @@ export const Header = () => {
     };
 
     const clearFilters = () => {
-        dispatch(setClear());
+        console.log('dispatch(setClear());');
     };
 
-    useEffect(() => {
-        document.body.setAttribute('data-theme', theme);
-    }, [theme]);
+    // useEffect(() => {
+    //     document.body.setAttribute('data-theme', theme);
+    // }, [theme]);
 
-    useEffect(() => {
-        localStorage.setItem('currentTheme', theme);
-    }, [theme]);
-    useEffect(() => {
-        if (localTheme) {
-            dispatch(setTheme(localTheme));
-        }
-    }, []);
+    // useEffect(() => {
+    //     localStorage.setItem('currentTheme', theme);
+    // }, [theme]);
+    // useEffect(() => {
+    //     if (localTheme) {
+    //         dispatch(setTheme(localTheme));
+    //     }
+    // }, []);
 
     return (
         <HeaderEl>

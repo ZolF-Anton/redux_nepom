@@ -5,11 +5,10 @@ import { List } from '../components/List';
 import { Card } from '../components/Card';
 import { Controls } from '../components/Controls';
 import {
-    selectAllCountries,
     selectCountriesInfo,
     selectVisibleCountries,
 } from '../store/countries/countries-selectors';
-import { loadCountries } from '../store/countries/countries-actions';
+//import { loadCountries } from '../store/countries/countries-actions';
 import { loadCountriesAcync } from '../store/countries/countries-actions';
 import { selectControls } from '../store/controls/controls-selector';
 

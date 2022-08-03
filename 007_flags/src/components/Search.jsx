@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 import { IoSearch } from 'react-icons/io5';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectSearch } from '../store/controls/controls-selector';
+import { useDispatch } from 'react-redux';
+//import { selectSearch } from '../store/controls/controls-selector';
 import { setSearch } from '../store/controls/controls-actions';
 import { useState } from 'react';
 import useDebounceLite from '../hooks/useDebounceLite';
@@ -38,7 +38,6 @@ const Input = styled.input.attrs({
 
 export const Search = () => {
     const dispatch = useDispatch();
-    //const search = useSelector(selectSearch);
 
     const [text, setText] = useState('');
     const debounceSearch = useDebounceLite(text, 300);
@@ -48,6 +47,10 @@ export const Search = () => {
         console.log('start setText', text);
     };
 
+    const onLoadLog = (e) => {
+        console.log(e);
+    };
+
     useEffect(() => {
         console.log('####debounceSearch', debounceSearch);
         dispatch(setSearch(text));
@@ -55,7 +58,7 @@ export const Search = () => {
     return (
         <InputContainer>
             <IoSearch />
-            <Input onChange={handleSearch} value={text} />
+            <Input onChange={handleSearch} value={text} onLoad={(e) => onLoadLog(e)} />
         </InputContainer>
     );
 };
